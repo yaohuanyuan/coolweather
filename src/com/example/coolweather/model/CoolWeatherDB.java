@@ -1,13 +1,15 @@
-package model;
+package com.example.coolweather.model;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.example.coolweather.db.CoolWeatherOpenHelper;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import db.CoolWeatherOpenHelper;
+import android.util.Log;
 
 public class CoolWeatherDB {
 	
@@ -52,7 +54,7 @@ public class CoolWeatherDB {
 		if (cursor.moveToFirst()) {
 			do {
 				Province province = new Province();
-				province.setId(cursor.getInt(cursor.getColumnIndex("Id")));
+				province.setId(cursor.getInt(cursor.getColumnIndex("id")));
 				province.setProvinceName(cursor.getString(cursor.getColumnIndex("province_name")));
 				province.setProvinceCode(cursor.getString(cursor.getColumnIndex("province_code")));
 				list.add(province);
@@ -103,6 +105,7 @@ public class CoolWeatherDB {
 			values.put("county_code", county.getCountyCode());
 			values.put("city_id", county.getCityId());
 			db.insert("County", null, values);
+			Log.d("haha", "加入数据库");
 		}
 	}
 	
@@ -115,6 +118,7 @@ public class CoolWeatherDB {
 				County county = new County();
 				county.setId(cursor.getInt(cursor.getColumnIndex("id")));
 				county.setCountyName(cursor.getString(cursor.getColumnIndex("county_name")));
+				Log.d("haha", "从数据库加载county" + county.getCountyName());
 				county.setCountyCode(cursor.getString(cursor.getColumnIndex("county_code")));
 				county.setCityId(cityId);
 				list.add(county);
