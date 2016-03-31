@@ -15,6 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
+            android:background="#456987"
             android:text="选择城市"/>
         
         <TextView 
@@ -32,6 +33,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
+            android:background="#478965"
             android:text="刷新数据"/>
     </RelativeLayout>
     
